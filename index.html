@@ -7,43 +7,100 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/bootstrap-grid.css">
     <link rel="stylesheet" href="css/bootstrap-reboot.css">
-
-    <script type="text/javascript" async
-            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async>
-    </script>
+    <link rel="stylesheet" href="css/style.css">
 
     <title>Fault tolerance lab</title>
 </head>
-<body style="margin-top: 50px;">
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-8">
-            <p class="p-4 display-4">
-                Анализ отказоустойчивости информационной системы
-            </p>
-        </div>
-    </div>
-    <div class="row justify-content-center">
-        <div class="col-auto">
-            <img src="https://efsol.ru/images/its/cluster_schm.png" height="300px" alt="Mobirise" title=""
-                 media-simple="true">
+<body style="min-width: 320px">
+<div class="p-4 text-center">
+    <h1 class="display-4">
+        Анализ отказоустойчивости информационной системы
+    </h1>
+</div>
+<div class="container" style="margin-bottom: 40px">
+    <div class="row text-center">
+        <div class="col-12">
+            <img src="images/circuit.png" class="img-fluid" alt="Схема IP сети">
         </div>
         <div class="w-100"></div>
-        <div class="col-auto">
+        <div class="col-12">
             <p class="text-black-50">
                 Cхема IP сети (совпадает со схемой отказоустойчивости)
             </p>
         </div>
     </div>
-    <div class="row justify-content-center">
-        <div class="col-auto">
+    <div class="row text-center">
+        <div class="col-12">
             <p>
-                <strong>Формула расчета вероятности отказоустойчивости информационной системы:</strong>
+                <strong>Формула расчета вероятности безотказной работы ИС:</strong>
                 <br>
-                $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
+                $$P = (1-λ_рt)(1-λ_мt) \cdot λ_мt \cdot (1-λ_мt) \cdot λ_мt \cdot λ_мt \\
+                +(1-λ_рt)(1-λ_мt)(1-λ_мt) \cdot λ_мt \cdot (1-λ_м t) \cdot λ_мt \\
+                +(1-λ_рt)(1-λ_мt)(1-λ_мt) \cdot λ_мt \cdot λ_мt \cdot (1-λ_мt)$$
             </p>
         </div>
     </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">λ<sub>р</sub></span>
+                </div>
+                <input id="r_input" type="text" class="form-control"
+                       placeholder="Интенсивность роутера">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">λ<sub>м</sub></span>
+                </div>
+                <input id="m_input" type="text" class="form-control"
+                       placeholder="Интенсивность маршрутизаторов">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">t&ensp;</span>
+                </div>
+                <input id="time_input" type="text" class="form-control"
+                       placeholder="Время работы в часах">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">P = </span>
+                </div>
+                <input id="result" type="text" class="form-control"
+                       placeholder="0" readonly value="0.8">
+            </div>
+            <button id="btn_calc" data-toggle="modal" type="button" class="btn btn-outline-dark btn-block">Рассчитать вероятность</button>
+        </div>
+    </div>
 </div>
+
+<div class="modal fade" id="error-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Сообщение</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Все поля должны быть заполнены. <br>
+                Значения интенсивностей и времени должны быть числом. <br>
+                Проверьте правильно ли вы ввели значения, и попробуйте снова.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Закрыть</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.bundle.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+<script type="text/javascript" src="js/calc.js"></script>
+
 </body>
 </html>
