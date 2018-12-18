@@ -42,33 +42,12 @@
         </div>
     </div>
 
-    <ul class="nav nav-tabs mb-3 justify-content-center" id="labs-tab" role="tablist">
-        <li class="nav-item">
-            <a class="nav-link active dark" id="lab1-tab" data-toggle="pill" href="#lab1" role="tab"
-               aria-selected="true">
-                Без резервирования
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link dark" id="lab2A-tab" data-toggle="pill" href="#lab2A" role="tab"
-               aria-selected="false">
-                Метод мажоритарного резервирования
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link dark" id="lab2B-tab" data-toggle="pill" href="#lab2B" role="tab"
-               aria-selected="false">
-                Метод попарного резервирования
-            </a>
-        </li>
-    </ul>
-    <div class="tab-content" id="labs-tabContent">
-        <div class="tab-pane fade show active" id="lab1" role="tabpanel" aria-labelledby="lab1-tab">
-            <div class="row text-center">
-                <div class="col-12">
-                    <p>
-                        <strong>Вероятности:</strong>
-                        <br>
+    <div class="row text-center mb-4">
+        <div class="card-deck">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Без резервирования</h5>
+                    <p class="card-text">
                         $$
                         p_р = e^{-λ_рt};\\
                         p_м = e^{-λ_мt}.
@@ -76,48 +55,10 @@
                     </p>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-12">
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">λ<sub>р</sub></span>
-                        </div>
-                        <input id="lab1_r_input" type="text" class="form-control"
-                               placeholder="Интенсивность роутера">
-                    </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">λ<sub>м</sub></span>
-                        </div>
-                        <input id="lab1_m_input" type="text" class="form-control"
-                               placeholder="Интенсивность маршрутизаторов">
-                    </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">t&ensp;</span>
-                        </div>
-                        <input id="lab1_time_input" type="text" class="form-control"
-                               placeholder="Время работы в часах">
-                    </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">P = </span>
-                        </div>
-                        <input id="lab1_result" type="text" class="form-control"
-                               placeholder="0" readonly value="0.0">
-                    </div>
-                    <button id="lab1_btn_calc" data-toggle="modal" type="button" class="btn btn-outline-dark btn-block">
-                        Рассчитать вероятность
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="tab-pane fade" id="lab2A" role="tabpanel" aria-labelledby="lab2-tab">
-            <div class="row text-center">
-                <div class="col-12">
-                    <p>
-                        <strong>Вероятности:</strong>
-                        <br>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Метод мажоритарного резервирования</h5>
+                    <p class="card-text">
                         $$
                         p_р = 3e^{-2λ_рt} - 2e^{-3λ_рt};\\
                         p_м = e^{-λ_мt}.
@@ -125,49 +66,10 @@
                     </p>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-12">
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">λ<sub>р</sub></span>
-                        </div>
-                        <input id="lab2A_r_input" type="text" class="form-control"
-                               placeholder="Интенсивность роутера">
-                    </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">λ<sub>м</sub></span>
-                        </div>
-                        <input id="lab2A_m_input" type="text" class="form-control"
-                               placeholder="Интенсивность маршрутизаторов">
-                    </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">t&ensp;</span>
-                        </div>
-                        <input id="lab2A_time_input" type="text" class="form-control"
-                               placeholder="Время работы в часах">
-                    </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">P = </span>
-                        </div>
-                        <input id="lab2A_result" type="text" class="form-control"
-                               placeholder="0" readonly value="0.0">
-                    </div>
-                    <button id="lab2A_btn_calc" data-toggle="modal" type="button"
-                            class="btn btn-outline-dark btn-block">
-                        Рассчитать вероятность
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="tab-pane fade" id="lab2B" role="tabpanel" aria-labelledby="lab2-tab">
-            <div class="row text-center">
-                <div class="col-12">
-                    <p>
-                        <strong>Вероятности:</strong>
-                        <br>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Метод попарного резервирования</h5>
+                    <p class="card-text">
                         $$
                         p_р = 2e^{-λ_рt} - e^{-2λ_рt};\\
                         p_м = e^{-λ_мt}.
@@ -175,44 +77,59 @@
                     </p>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-12">
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">λ<sub>р</sub></span>
-                        </div>
-                        <input id="lab2B_r_input" type="text" class="form-control"
-                               placeholder="Интенсивность роутера">
-                    </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">λ<sub>м</sub></span>
-                        </div>
-                        <input id="lab2B_m_input" type="text" class="form-control"
-                               placeholder="Интенсивность маршрутизаторов">
-                    </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">t&ensp;</span>
-                        </div>
-                        <input id="lab2B_time_input" type="text" class="form-control"
-                               placeholder="Время работы в часах">
-                    </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">P = </span>
-                        </div>
-                        <input id="lab2B_result" type="text" class="form-control"
-                               placeholder="0" readonly value="0.0">
-                    </div>
-                    <button id="lab2B_btn_calc" data-toggle="modal" type="button"
-                            class="btn btn-outline-dark btn-block">
-                        Рассчитать вероятность
-                    </button>
-                </div>
-            </div>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">λ<sub>р</sub></span>
+                </div>
+                <input id="r_input" type="text" class="form-control"
+                       placeholder="Интенсивность роутера">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">λ<sub>м</sub></span>
+                </div>
+                <input id="m_input" type="text" class="form-control"
+                       placeholder="Интенсивность маршрутизаторов">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">t&ensp;</span>
+                </div>
+                <input id="time_input" type="text" class="form-control"
+                       placeholder="Время работы в часах">
+            </div>
+            <div class="btn-group btn-group-toggle d-flex mb-3" id="reservation-method" data-toggle="buttons">
+                <label class="btn btn-outline-dark active w-100">
+                    <input type="radio" name="options" id="option1" autocomplete="off" checked value="0">
+                    Без резервирования
+                </label>
+                <label class="btn btn-outline-dark w-100">
+                    <input type="radio" name="options" id="option2" autocomplete="off" value="1">
+                    Метод мажоритарного резервирования
+                </label>
+                <label class="btn btn-outline-dark w-100">
+                    <input type="radio" name="options" id="option3" autocomplete="off" value="2">
+                    Метод попарного резервирования
+                </label>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">P = </span>
+                </div>
+                <input id="result" type="text" class="form-control"
+                       placeholder="0" readonly value="0.0">
+            </div>
+            <button id="btn_calc" data-toggle="modal" type="button" class="btn btn-outline-dark btn-block">
+                Рассчитать вероятность
+            </button>
+        </div>
+    </div>
+
 </div>
 
 <div class="modal fade" id="error-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
